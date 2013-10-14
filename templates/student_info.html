@@ -4,5 +4,11 @@
 <h1>Student: {{first_name}} {{last_name}}</h1>
 <h2>Github account: {{github}}</h2>
 <p>We looked this shit up!</p>
+<p>List of grades for {{first_name}} {{last_name}}:</p>
+<ul>
+    {% for grade in list_of_grades %}
+    <li><a href = "/project?project_title={{grade[1]}}">{{grade[1]}}</a> : {{grade[2]}}</li>
+    {% endfor %}
+</ul>
 </body>
 </html>

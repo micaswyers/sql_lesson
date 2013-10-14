@@ -1,0 +1,13 @@
+<html>
+
+    <body>
+
+        <h1>{{student_grades[0][1]}}</h1>
+
+            <ul>
+                {% for item in student_grades %}
+                <li><a href = "/student?github={{item[0]}}">{{item[0]}}</a> : {{item[2]}}</li>
+                {% endfor %}
+            </ul>
+    </body>
+</html>

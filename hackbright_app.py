@@ -56,13 +56,14 @@ def get_student_report(student_github):
     query = """SELECT student_github, project_title, grade FROM Grades WHERE student_github = ?"""
     DB.execute(query, (student_github,))
     rows = DB.fetchall()
-    print """Student github: %s""" % rows[0][0]
-    for row in rows:
-        print """
-Project Title: %s
-Grade: %d
-""" % (row[1], row[2])
+    return rows
 
+def get_project_grades(project_title):
+    print "TITLE", project_title
+    query = """SELECT * FROM Grades WHERE project_title = ?"""
+    DB.execute(query, (project_title, ))
+    rows = DB.fetchall()
+    return rows
 
 def main():
     connect_to_db()
@@ -90,6 +91,8 @@ def main():
             assign_grade(*args)
         elif command == "student_report":
             get_student_report(*args)
+        elif command == "project_grades":
+            get_project_grades(*args)
 
     CONN.close()
 
