@@ -1,5 +1,5 @@
 import hackbright_app
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
@@ -59,10 +59,12 @@ def assign_grade():
     grade = request.args.get("grade")
     hackbright_app.assign_grade(student_github, title, grade)
 
-    row = hackbright_app.get_student_by_github(student_github)
-    row2 = hackbright_app.get_student_report(student_github)
+    return redirect("/student?github=%s" % student_github)
 
-    return render_template("student_info.html", first_name=row[0], last_name=row[1], github=student_github, list_of_grades=row2)
+    # row = hackbright_app.get_student_by_github(student_github)
+    # row2 = hackbright_app.get_student_report(student_github)
+
+    # return render_template("student_info.html", first_name=row[0], last_name=row[1], github=student_github, list_of_grades=row2)
 
 
 if __name__ == "__main__":
