@@ -47,7 +47,7 @@ def assign_grade(student_github, project_title, grade):
     query = """INSERT into Grades values (?, ?, ?)"""
     DB.execute(query, (student_github, project_title, grade))
     CONN.commit()
-    print "Successfully assigned %s points to %s for %s" % (grade, student_github, project_title)
+    
 
 def get_student_report(student_github):
     query = """SELECT student_github, project_title, grade FROM Grades WHERE student_github = ?"""
@@ -61,6 +61,12 @@ def get_project_grades(project_title):
     DB.execute(query, (project_title, ))
     rows = DB.fetchall()
     return rows
+
+def get_all_projects():
+    query = """SELECT Title FROM Projects"""
+    DB.execute(query)
+    titles = DB.fetchall()
+    return titles
 
 def main():
     connect_to_db()
@@ -90,6 +96,8 @@ def main():
             get_student_report(*args)
         elif command == "project_grades":
             get_project_grades(*args)
+        elif command == "projects":
+            get_all_projects()
 
     CONN.close()
 
