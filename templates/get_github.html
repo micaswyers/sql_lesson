@@ -1,13 +1,22 @@
 <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/static/hackbright_app.css" />
+        <title>WHAT DO YOU WANT TO FIND?</title>
+    </head>
 
     <body>
+
+        <h1>Welcome to Hackbright/Hogwarts student database!</h1>
+
+        <h2>Look up a student by github id</h2>
         <form action="/student">
             <label for="github">Enter github id</label>
             <input type="text" name = "github" />
             <input type="submit">
         </form>
 
-        <form action="/new_student">
+        <h2>Add a new student to the database</h2>
+        <form action="/new_student" method="POST">
             <label for="firstname">Enter new student First Name</label>
             <input type="text" name="firstname"><br>
             <label for="lastname">Enter new student Last Name</label>
@@ -17,7 +26,8 @@
             <input type="submit">
         </form>
 
-        <form action="/new_project">
+        <h2>Add a new project to the database</h2>
+        <form action="/new_project" method="POST">
             <label for="project_title">Enter new project title</label>
             <input type="text" name="project_title"><br>
             <label for="description">Enter new project description</label>
@@ -27,7 +37,8 @@
             <input type="submit">
         </form>
 
-        <form action="/assign_grade">
+        <h2>Assign a grade for an existing project</h2>
+        <form action="/assign_grade" method="POST">
             <label for="github">Enter student github</label>
             <input type="text" name="github"><br>
             <label for="title">Enter project for assigning grade</label>
