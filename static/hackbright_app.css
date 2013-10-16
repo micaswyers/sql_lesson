@@ -6,3 +6,27 @@ h1, h2 {
 body {
     font-family: "helvetica", sans-serif;
 }
+
+div {
+     border: solid #000000 1px;
+}
+#name {
+    background-color: #99CCFF;
+    opacity: 50;
+    width: 500;
+}
+
+#github {
+    background-color: #FF9966;
+    opacity: 50;
+    width:500;
+
+}
+
+
+#main {
+    width: 700px;
+   margin-left: auto;
+   margin-right: auto;
+   padding: 20px;
+}

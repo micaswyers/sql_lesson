@@ -1,16 +1,25 @@
 <html>
-   <head>
-<link rel="stylesheet" type="text/css" href="/static/hackbright_app.css" />        
-<title>Information for {{first_name}} {{last_name}}</title> 
+    <head>
+        <link rel="stylesheet" type="text/css" href="/static/hackbright_app.css" />        
+        <title>Information for {{first_name}} {{last_name}}</title> 
     </head>
 
 <body>
-<h1>Student: {{first_name}} {{last_name}}</h1>
-<h2>Github account: {{github}}</h2>
-<p>We looked this shit up!</p>
-<p>List of grades for {{first_name}} {{last_name}}:</p>
-<ul>
-    {% for grade in list_of_grades %}
-    <li><a href = "/project?project_title={{grade[1]}}">{{grade[1]}}</a> : {{grade[2]}}</li>
-    {% endfor %}
-</ul>
+    <div id = "name">
+
+
+        <h1>Student: {{first_name}} {{last_name}}</h1>
+    </div>
+    <div id = "github">
+        <h2>Github account: {{github}}</h2>
+    </div>
+
+    <p>List of grades for {{first_name}} {{last_name}}:</p>
+    <ul>
+        {% for grade in list_of_grades %}
+        <li><a href = "/project?project_title={{grade[1]}}">{{grade[1]}}</a> : {{grade[2]}}</li>
+        {% endfor %}
+    </ul>
+ 
+</body>
+</html>
